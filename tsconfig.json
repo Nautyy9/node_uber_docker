@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Target ECMAScript version.
+    "module": "CommonJS", // Use ECMAScript module system.
+    "outDir": "./dist", // Output directory for compiled JS files.
+    "strict": true, // Strict type checking.
+    "esModuleInterop": true,
+    "paths": {
+      "*": ["src/*"]
+    },
+    "baseUrl": "./",
+    // Interoperability between CommonJS and ES Modules.
+    "moduleResolution": "Node", // Node.js module resolution.
+    "skipLibCheck": true, // Skips type checking for library declarations.
+    "forceConsistentCasingInFileNames": true // Ensures file casing is respected.
+    // "sourceMap": true // Includes source maps for debugging.
+  },
+  "include": ["src/**/*.ts"], // Include all TypeScript files in the src folder.
+  "exclude": ["node_modules", "dist"] // Exclude node_modules.
+}

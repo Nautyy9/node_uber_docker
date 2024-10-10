@@ -1,0 +1,37 @@
+{
+  "name": "node_uber_docker",
+  "private": true,
+  "version": "0.0.0",
+  "proxy": "router.project-osrm.org",
+  "scripts": {
+    "build": "tsc ",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@maplibre/maplibre-gl-directions": "^0.7.1",
+    "@prisma/client": "^5.20.0",
+    "@sentry/node": "^8.30.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "htmx": "^0.0.2",
+    "http": "^0.0.1-security",
+    "ioredis": "^5.4.1",
+    "kafkajs": "^2.2.4",
+    "maplibre-gl": "^4.7.0",
+    "nodemon": "^3.1.4",
+    "uuid": "^10.0.0",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.4",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.5.12",
+    "prisma": "^5.20.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}

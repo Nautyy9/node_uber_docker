@@ -1,0 +1,106 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BNPS"
+      },
+      "geometry": {
+        "coordinates": [77.3087619072582, 28.657233063810907],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BVM"
+      },
+      "geometry": {
+        "coordinates": [77.30742662340697, 28.65727755939946],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "RSBV Surajmal"
+      },
+      "geometry": {
+        "coordinates": [77.30864048449985, 28.6577961113569],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Joseph"
+      },
+      "geometry": {
+        "coordinates": [77.31703705147447, 28.66129055000961],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vidya Bharti"
+      },
+      "geometry": {
+        "coordinates": [77.3261053568346, 28.667046653626457],
+        "type": "Point"
+      },
+      "id": 4
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Green Field"
+      },
+      "geometry": {
+        "coordinates": [77.3292603194999, 28.66349937067946],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DAV Ch"
+      },
+      "geometry": {
+        "coordinates": [77.3263954289975, 28.662771991102687],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DMPS"
+      },
+      "geometry": {
+        "coordinates": [77.32159810191013, 28.65702197326408],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BAL BHARTI"
+      },
+      "geometry": {
+        "coordinates": [77.33467132402063, 28.669471452231946],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DAV Public"
+      },
+      "geometry": {
+        "coordinates": [77.33800747790673, 28.67056806435329],
+        "type": "Point"
+      }
+    }
+  ]
+}

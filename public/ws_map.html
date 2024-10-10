@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/maplibre-gl-directions/dist/maplibre-gl-directions.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.css"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>LIVE LOCATIONS</title>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div class="map_design">Show Map Design</div>
+    <div id="map_selector"></div>
+    <div class="loc_btn">
+      <button id="fetch_loc_status">Get Status</button>
+      <button id="delete_waypoint">Delete Last Location</button>
+      <button id="clear_waypoints">Clear All Locations</button>
+    </div>
+    <div class="distance">
+      <div class="total_dist">
+        <label for="ttl_dist">Total Distance</label>
+        <p id="ttl_dist">0m</p>
+      </div>
+      <div class="alter_dist">
+        <label for="alt_dist">Alt Distance</label>
+        <p id="alt_dist">0m</p>
+      </div>
+    </div>
+    <script
+      defer
+      src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/@maplibre/maplibre-gl-geocoder@1.5.0/dist/maplibre-gl-geocoder.min.js"
+    ></script>
+    <!-- <script
+      defer
+      src="https://unpkg.com/maplibre-gl-directions/dist/maplibre-gl-directions.min.js"
+    ></script> -->
+    <script defer src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+    <script type="module" defer src="/js/ws_connection.js"></script>
+  </body>
+</html>

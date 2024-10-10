@@ -1,0 +1,16 @@
+node_modules
+# Keep environment variables out of version control
+.env
+
+nginx
+nginx.conf
+certs
+.crt
+.key
+
+**/compose.y*ml
+**/.dockerignore
+**/nginx 
+**/*.p12
+**/*.conf
+

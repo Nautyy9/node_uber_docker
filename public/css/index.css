@@ -1,0 +1,360 @@
+* {
+  overflow: hidden;
+  font-weight: 500;
+
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  --bg_image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"%3E%3Cpath d="M20 6 9 17l-5-5"/%3E%3C/svg%3E');
+  --bg_image_none: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22lucide%20lucide-ban%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22/%3E%3Cpath%20d%3D%22m4.9%204.9%2014.2%2014.2%22/%3E%3C/svg%3E");
+}
+
+body {
+  background-color: #000000;
+  color: white;
+  width: 100svw;
+  height: 100svh;
+}
+#main {
+  /* all: initial; */
+  background-color: #000000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  /* position: absolute;
+  inset: 0; */
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.maplibregl-popup {
+  max-width: 400px;
+  font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+#map_selector {
+  background-color: rgba(0, 0, 0, 0.3);
+  font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  /* overflow: visible; */
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  margin-top: 70px;
+  border-radius: 3px;
+  height: max-content;
+  max-width: 10%;
+  min-width: 150px;
+
+  border-radius: 5px;
+  border: 1px solid black;
+  color: black;
+}
+
+.map_type {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+#span_id {
+  all: unset;
+  cursor: pointer;
+  /* overflow: visible; */
+  font-size: medium;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-left: auto;
+  align-items: center;
+  /* border-radius: 5px; */
+  /* background-color: aqua; */
+  border-top: 0px;
+  border-bottom: 1px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: gray;
+  border-style: solid;
+  /* margin-block: 2px; */
+  margin-inline: auto;
+  width: 95%;
+  height: 30px;
+}
+/* #map_selector select:last-of-type {
+  border-bottom: 0px;
+} */
+/* #map_selector span::after {
+  content: "";
+  background-image: var(--bg_image);
+} */
+
+#inner_div {
+  /* height: max-content; */
+  /* cursor: pointer; */
+  /* overflow: visible; */
+  /* height: 120%; */
+  min-width: 130px;
+  position: absolute;
+  font-size: medium;
+  top: 0px;
+  left: 149px;
+  visibility: hidden;
+  z-index: 10;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 1);
+  color: black;
+  border-radius: 5px;
+  border: 1px solid darkslategray;
+}
+
+.map_options {
+  width: 100%;
+  height: 100%;
+  margin-inline: auto;
+  border-top: 1px;
+  border-bottom: 1px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: lightcoral;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.map_design {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  width: 170px;
+  height: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 5px;
+  padding-right: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.map_design::after {
+  content: "";
+  width: 95%;
+  height: 100%;
+  position: absolute;
+  inset: 0px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-down'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e");
+}
+.map_design.clicked::after {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-up'%3e%3cpath d='m18 15-6-6-6 6'/%3e%3c/svg%3e");
+}
+@media (max-width: 600px) {
+  #map_selector {
+    margin-top: 0px;
+  }
+  .map_design {
+    margin-top: 60px;
+  }
+}
+@media (min-width: 601px) {
+  #map_selector {
+    margin-top: 0px;
+  }
+}
+.loc_btn > *,
+.distance {
+  position: fixed;
+  z-index: 10;
+  /* all: unset;*/
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  bottom: 25px;
+  align-items: center;
+  /* gap: 5px; */
+  width: max-content;
+  height: max-content;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding-inline: 20px;
+  padding-block: 10px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+#fetch_loc_status {
+  bottom: 150px;
+  padding-block: 15px;
+  right: 10px;
+}
+#delete_waypoint {
+  bottom: 100px;
+  padding-block: 15px;
+  right: 10px;
+}
+#clear_waypoints {
+  bottom: 50px;
+  padding-block: 15px;
+  right: 10px;
+}
+.alter_dist {
+  /* position: absolute; */
+  /* bottom: 30px; */
+}
+.total_dist {
+  border-color: white;
+  border-bottom: 2px solid;
+  /* bottom: 80px; */
+}
+
+@media (max-height: 690px) {
+  .distance {
+    flex-direction: row;
+    bottom: 40px;
+    right: 10px;
+    padding-block: 5px;
+    padding-inline: 5px;
+    /* text-align: center; */
+  }
+  .total_dist {
+    border-bottom: 0px;
+    padding-inline: 10px;
+    border-right: 2px solid;
+  }
+  .alter_dist {
+    padding-inline: 10px;
+  }
+  #fetch_loc_status {
+    bottom: 125px;
+    padding-block: 15px;
+    right: 10px;
+  }
+}
+@media (max-height: 690px) and (min-height: 580px) {
+  #delete_waypoint {
+    bottom: 60px;
+    padding-block: 15px;
+    left: 10px;
+  }
+  #clear_waypoints {
+    bottom: 10px;
+    padding-block: 15px;
+    left: 10px;
+  }
+}
+@media (max-height: 580px) {
+  .distance {
+    bottom: 40px;
+    right: 10px;
+  }
+  #fetch_loc_status {
+    bottom: 10px;
+    padding-block: 15px;
+    left: 10px;
+  }
+  #delete_waypoint {
+    right: 10px;
+    bottom: 125px;
+    padding-block: 15px;
+  }
+  #clear_waypoints {
+    right: 10px;
+    bottom: 175px;
+    padding-block: 15px;
+  }
+}
+@media (max-height: 520px) {
+  #fetch_loc_status {
+    bottom: 10px;
+    padding-block: 15px;
+    left: 10px;
+  }
+}
+#btn {
+  cursor: pointer;
+  margin-block: 30px;
+  padding-inline: 20px;
+  padding-block: 10px;
+  font-size: large;
+  position: relative;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  margin-inline: auto;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.room_container {
+  /* background-color: royalblue; */
+  width: 100%;
+  padding-block: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.room_container > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 100ms ease-in, background 250ms ease-in,
+    font-size 100ms ease-in;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgb(36, 28, 28);
+  border: 1px solid white;
+  position: relative;
+}
+
+.room_container > .selected {
+  background-color: rgba(76, 250, 76, 0.5); /* Fades to green background */
+  background-image: var(--bg_image); /* Shows green tick */
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  color: transparent; /* Fades out text */
+  font-size: 0; /* Reduces text size to 0 */
+}
+
+.room_container > .selected::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.room_container > .selected::after {
+  opacity: 1; /* Fade-in effect for the tick */
+}
+
+.room_container > .filled {
+  background-color: rgba(255, 0, 76, 0.5);
+  background-image: var(--bg_image_none);
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  color: transparent; /* Fades out text */
+  font-size: 0; /* Reduces text size to 0 */
+}
+
+.room_container > .filled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.room_container > .filled::after {
+  opacity: 1; /* Fade-in effect for the tick */
+}
