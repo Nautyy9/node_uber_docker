@@ -1,22 +1,30 @@
-![IMG-20241023-WA0013](https://github.com/user-attachments/assets/1946b090-dcd1-4547-9a97-130073d5ceb1)
-![IMG-20241023-WA0014](https://github.com/user-attachments/assets/9f862614-60f5-41e5-be22-72a2de20fb04)
-![IMG-20241024-WA0002](https://github.com/user-attachments/assets/18ac557c-7cb0-4ac4-b73c-cca36e565eb8)
-![IMG-20241023-WA0015](https://github.com/user-attachments/assets/487f0f13-7683-4731-8447-ff79a30c8581)
-![IMG-20241023-WA0017](https://github.com/user-attachments/assets/84ebee9b-e486-48cf-a822-8a217e45e8da)
-![IMG-20241023-WA0016](https://github.com/user-attachments/assets/23733419-5f52-48c6-9f5e-8686f5773c43)
 
-![IMG-20241024-WA0001](https://github.com/user-attachments/assets/c2de3ab8-bc0b-40a7-850f-c51c2b728f71)
+## Selecting the server for Kafka Based On Region
+  ![IMG-20241024-WA0014](https://github.com/user-attachments/assets/e6f9655a-da7f-4530-aaee-02ab2fe24cf1)
+  ![IMG-20241024-WA0011](https://github.com/user-attachments/assets/db20d9f0-cff4-4136-89bc-0113a5e9a8d1)
+
+## Selecting different Map Design
+![IMG-20241024-WA0010](https://github.com/user-attachments/assets/8132b883-8117-435a-9175-a0f0673120b3)
+
+## The Search Feature
+  ![IMG-20241024-WA0015](https://github.com/user-attachments/assets/8a1a42b8-4759-4da0-9041-68029a0891c9)
+
+## The Zoom Feature
+  ![IMG-20241024-WA0004](https://github.com/user-attachments/assets/68a53dd0-68e7-4e66-9b13-d58506aaf340)
+
 ## Distance Of Area From Current User Live Location
   Changes the Color with Change is distance travel
   - Green -> Within 50m radius
   - Yellow -> Within 100m radius
   - White ->  Place with distance of 100m or more
   - When No Active Location is Found   
-    ![IMG-20241023-WA0010](https://github.com/user-attachments/assets/d3c9ee11-3b01-4319-b949-8dfd9c257246)
+    ![IMG-20241024-WA0012](https://github.com/user-attachments/assets/178fcf43-6421-493b-9e76-9f25180fe620)
   - When active Location is Found . Nearby Place gets Updated 
-    ![IMG-20241023-WA0008](https://github.com/user-attachments/assets/157048ab-281c-476f-8ab5-1a5056440ef8)
-    ![IMG-20241023-WA0009](https://github.com/user-attachments/assets/3cdcdb63-6679-4802-8607-536d12e6982e)
+    ![IMG-20241024-WA0008](https://github.com/user-attachments/assets/20b009e8-565d-4154-a8f2-221b13e6a908)
+    ![IMG-20241024-WA0013](https://github.com/user-attachments/assets/ef036873-9152-44c6-8162-309047a6921e)
+
 ## Multiple User Distance {Both Way Update with Haversine} 
-![IMG-20241023-WA0011](https://github.com/user-attachments/assets/e77bfbd1-fcda-4b4e-8730-e3746bdcf032)
+  ![IMG-20241024-WA0003](https://github.com/user-attachments/assets/41d9db57-c868-4ee2-acea-9025c113e64d)
+  
 ## Multiple User with Added Locations
-![IMG-20241023-WA0012](https://github.com/user-attachments/assets/794e347c-b62f-42b1-a89f-e3b08d8a39d0)
+  ![IMG-20241024-WA0007](https://github.com/user-attachments/assets/52957b94-602c-4404-ab9a-e7af5f3c9528)
