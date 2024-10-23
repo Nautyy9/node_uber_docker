@@ -1,4 +1,4 @@
-# Multi User Region Based Live Location Tracker.  
+# Multi User Region Based Live Location Tracker With SSL.  
  ### Tech Used
    - KafkaJs -> for live location streaming data , providing location based on region by utilizing consumer groups . Future profing for upscaling based on user  
    - Redis -> for caching live data for updating last location updates even if user dissconnects
