@@ -104,53 +104,53 @@ document.addEventListener("trackingOff", (e) => {
   }
 })
 
-function addUsers(dataSendingServer, coordinates, id) {
-  // const coords = [data["locationData"]["lng"], data["locationData"]["lat"]]
-  if (directions) {
-    // console.log(directions.waypoints)
-    if (currentPos) {
-      const distance = calculateDistance(
-        currentPos[1],
-        currentPos[0],
-        coordinates[1],
-        coordinates[0]
-      )
-      if (distance > 0.001) {
-        updateLiveLocation(coordinates, id)
-      }
-    } else {
-      updateLiveLocation(coordinates, id)
-    }
-  }
-  // const source = map.getSource("user_loc")
-  // const featuresData = source._data
-  // // console.log(featuresData, dataSendingServer, "source data")
-  // const featureExists = featuresData.features.some(
-  //   (feature) =>
-  //     feature.properties && feature.properties.name === dataSendingServer
-  // )
+// function addUsers(dataSendingServer, coordinates, id) {
+//   // const coords = [data["locationData"]["lng"], data["locationData"]["lat"]]
+//   if (directions) {
+//     // console.log(directions.waypoints)
+//     if (currentPos) {
+//       const distance = calculateDistance(
+//         currentPos[1],
+//         currentPos[0],
+//         coordinates[1],
+//         coordinates[0]
+//       )
+//       if (distance > 0.005) {
+//         updateLiveLocation(coordinates, id)
+//       }
+//     } else {
+//       updateLiveLocation(coordinates, id)
+//     }
+//   }
+//   // const source = map.getSource("user_loc")
+//   // const featuresData = source._data
+//   // // console.log(featuresData, dataSendingServer, "source data")
+//   // const featureExists = featuresData.features.some(
+//   //   (feature) =>
+//   //     feature.properties && feature.properties.name === dataSendingServer
+//   // )
 
-  // if (!featureExists) {
-  //   const coords = [data["locationData"]["lng"], data["locationData"]["lat"]]
+//   // if (!featureExists) {
+//   //   const coords = [data["locationData"]["lng"], data["locationData"]["lat"]]
 
-  //   const json = {
-  //     type: "Feature",
-  //     properties: {
-  //       name: dataSendingServer,
-  //     },
-  //     geometry: {
-  //       type: "Point",
-  //       coordinates: coords,
-  //     },
-  //   }
-  //   geojsonData.features.push(json)
-  //   if (source) {
-  //     source.setData(geojsonData)
-  //   }
-  // }
-}
+//   //   const json = {
+//   //     type: "Feature",
+//   //     properties: {
+//   //       name: dataSendingServer,
+//   //     },
+//   //     geometry: {
+//   //       type: "Point",
+//   //       coordinates: coords,
+//   //     },
+//   //   }
+//   //   geojsonData.features.push(json)
+//   //   if (source) {
+//   //     source.setData(geojsonData)
+//   //   }
+//   // }
+// }
 function paintSchool(data) {
-  // console.log(data, "from school")
+  console.log(data, "from school")
   let expression = ["case"]
   let color = "rgba(128, 128, 128, 0.4)"
   data["nearbySchools"].forEach((place) => {
@@ -201,10 +201,15 @@ ws.onmessage = async (msg) => {
   }
   paintSchool(data)
 }
+let timeout
 async function wait(fn) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve(fn.call({})), 2000)
-  })
+  if (timeout) {
+    clearTimeout(timeout)
+  } else {
+    return new Promise((resolve, reject) => {
+      timeout = setTimeout(resolve(fn.call({})), 2000)
+    })
+  }
 }
 
 async function fetchOsrmData() {
@@ -307,7 +312,7 @@ function updateRouteLine(routeData) {
 
 function updateWaypoint(coordinates, id) {
   if (directions) {
-    // console.log(directions.waypoints)
+    // console.log(directions.waypoints, currentPos)
     if (currentPos) {
       const distance = calculateDistance(
         currentPos[1],

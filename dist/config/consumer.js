@@ -28,7 +28,9 @@ function isLocationType(obj) {
         "roomName" in obj &&
         "serverName" in obj);
 }
+let i = 0;
 function sendDownToClient(locationData, location) {
+    console.log(i++, "consumer");
     ws_setup_1.wss.clients.forEach((client) => {
         if (client.readyState === client.OPEN) {
             if (isErrorType(locationData)) {
@@ -48,6 +50,7 @@ function sendDownToClient(locationData, location) {
 }
 async function consumerInit() {
     try {
+        let prevDat = {};
         // let consumer: Consumer | undefined
         // flag = false
         if (subscriber) {
@@ -63,7 +66,7 @@ async function consumerInit() {
                 console.log("SUbscribed by redis ", subscribed);
                 subscriber.on("message", async (channel, message) => {
                     const locationData = JSON.parse(message);
-                    await (0, wait_for_it_1.wait)(undefined, 3000);
+                    // await wait(undefined, 3000)
                     if (isErrorType(locationData)) {
                         //@ handleClientDisconnect()
                         const lastLocationInserted = await prisma_config_1.prisma.locations.findFirst({
@@ -78,12 +81,12 @@ async function consumerInit() {
                     else if (isLocationType(locationData)) {
                         const nearbySchools = await (0, fetchNearby_1.fetchNearby)(locationData);
                         (0, prisma_db_1.dbInit)(nearbySchools, locationData);
-                        sendDownToClient(locationData, nearbySchools);
+                        await (0, wait_for_it_1.wait)(sendDownToClient(locationData, nearbySchools), 10000);
                     }
                     else {
                         console.log("invalid type");
                     }
-                    // console.log(locationData)
+                    // // console.log(locationData)
                 });
             }
             catch (e) {
@@ -117,8 +120,29 @@ async function consumerInit() {
                     });
                     await consumer.run({
                         eachMessage: async ({ topic, partition, message, heartbeat, pause, }) => {
+                            // const locationData: locationType = JSON.parse(
+                            //   message.value!.toString("utf-8")
+                            // )
                             const locationData = JSON.parse(message.value.toString("utf-8"));
                             console.log(`${group.name}: [${topic}]: PART:${partition}:`, locationData);
+                            // await wait(undefined, 5000)
+                            // if (isErrorType(locationData)) {
+                            //   //@ handleClientDisconnect()
+                            //   const lastLocationInserted = await prisma.locations.findFirst({
+                            //     where: {
+                            //       user: {
+                            //         name: locationData.serverName,
+                            //       },
+                            //     },
+                            //   })
+                            //   sendDownToClient(locationData, lastLocationInserted)
+                            // } else if (isLocationType(locationData)) {
+                            //   const nearbySchools = await fetchNearby(locationData)
+                            //   dbInit(nearbySchools, locationData)
+                            //   await wait(sendDownToClient(locationData, nearbySchools), 5000)
+                            // } else {
+                            //   console.log("invalid type")
+                            // }
                             // if (!flag) {
                             //   console.log("pausing the consumption")
                             //   pause()
