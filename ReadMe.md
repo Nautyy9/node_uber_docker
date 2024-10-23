@@ -1,5 +1,18 @@
-
-## Selecting the server for Kafka Based On Region
+# Multi User Region Based Live Location Tracker.  
+ ### Tech Used
+   - KafkaJs -> for live location streaming data , providing location based on region by utilizing consumer groups . Future profing for upscaling based on user  
+   - Redis -> for caching live data for updating last location updates even if user dissconnects
+   - prismaDb -> for storing nearby location and getting updates for user location about a Minute ago
+   - Docker -> because it works on my Machine :) . 
+### Goal -> 
+  - To create a application where multiple user can share and see all the other users live location .
+### Usecase ->
+  - Users can track the real-time location of friends or family members during travel or events. Useful for safety purposes when family members are traveling alone or at night.
+  - Friends or groups can share their locations to coordinate meetups without needing constant messaging.
+  -  At concerts, festivals, or fairs, users can see where their friends are and meet up easily.
+  -  In case of emergencies, users can share their exact location with authorities or selected contacts.
+  -  Alerts when users enter or exit predefined zones (e.g., children leaving school zones or safe areas).
+## Selecting the server for Kafka Based On Region 
   ![IMG-20241024-WA0014](https://github.com/user-attachments/assets/e6f9655a-da7f-4530-aaee-02ab2fe24cf1)
   ![IMG-20241024-WA0011](https://github.com/user-attachments/assets/db20d9f0-cff4-4136-89bc-0113a5e9a8d1)
 
@@ -17,7 +30,8 @@
   - Green -> Within 50m radius
   - Yellow -> Within 100m radius
   - White ->  Place with distance of 100m or more
-  - When No Active Location is Found   
+    
+  - When No Nearby Location is Found   
     ![IMG-20241024-WA0012](https://github.com/user-attachments/assets/178fcf43-6421-493b-9e76-9f25180fe620)
   - When active Location is Found . Nearby Place gets Updated 
     ![IMG-20241024-WA0008](https://github.com/user-attachments/assets/20b009e8-565d-4154-a8f2-221b13e6a908)
